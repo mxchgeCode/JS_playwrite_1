@@ -1,0 +1,17 @@
+{
+  "name": "js_playwrite_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.spec.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mxchgeCode/JS_playwrite_1.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@playwright/test": "^1.51.0"
+  }
+}
