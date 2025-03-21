@@ -9,7 +9,7 @@ test('checkbox and radio', async ({page}) => {
 
 
 test('click test', async ({page}) => {
-    await page.goto('http://uitestingplayground.com/click');
+    await page.goto('https://uitestingplayground.com/click');
     const button = page.locator("#badButton");
     await expect(button).toHaveCSS('background-color', 'rgb(0, 123, 255)')
     await button.click();
@@ -20,7 +20,7 @@ test('click test', async ({page}) => {
 
 test('fill data test', async ({page}) => {
     const login = 'john'
-    await page.goto('http://uitestingplayground.com/sampleapp');
+    await page.goto('https://uitestingplayground.com/sampleapp');
     await page.fill(`input[name="UserName"]`, login);
     await page.fill('input[name="Password"]', 'pwd');
     await page.locator('[id="login"]').click();
@@ -29,14 +29,14 @@ test('fill data test', async ({page}) => {
 })
 
 test('get image caption', async ({page}) => {
-    await page.goto('http://the-internet.herokuapp.com/hovers');
+    await page.goto('https://the-internet.herokuapp.com/hovers');
     await page.locator(".figure").nth(1).hover();
     await expect(page.locator('a[href="/users/2"]')).toBeVisible();
 })
 
 
 test('checkboxes', async ({page}) => {
-    await page.goto('http://the-internet.herokuapp.com/checkboxes');
+    await page.goto('https://the-internet.herokuapp.com/checkboxes');
     const form = page.locator("#checkboxes input")
     const cb1 = form.nth(0);
     const cb2 = form.nth(1);
@@ -52,7 +52,7 @@ test('checkboxes', async ({page}) => {
 test('screen_shot', async ({page}) => {
     const screenshotPath = 'site.png'
     const containerScreenshotPath = 'container.png'
-    await page.goto('http://uitestingplayground.com/sampleapp');
+    await page.goto('https://uitestingplayground.com/sampleapp');
     await page.locator("body").screenshot({path: screenshotPath});
     await page.waitForTimeout(500);
     await page.locator('.container').first().screenshot({path: containerScreenshotPath});
@@ -63,4 +63,15 @@ test('screen_shot', async ({page}) => {
     expect(bodyFileExists, `Файл ${screenshotPath} не был создан`).toBe(true);
     expect(containerFileExists, `Файл ${containerScreenshotPath} не был создан`).toBe(true);
 
+})
+
+test('text_copy_paste', async ({page}) => {
+    await page.goto('http://uitestingplayground.com/textinput');
+    await page.waitForTimeout(500)
+    const buttonLocator = page.locator('#updatingButton');
+    const buttonText = await buttonLocator.textContent();
+    const triple_text = buttonText+buttonText+buttonText;
+    await page.fill('#newButtonName', triple_text)
+    await page.waitForTimeout(500)
+    await expect(page.locator('#updatingButton')).toHaveText(buttonText)
 })
