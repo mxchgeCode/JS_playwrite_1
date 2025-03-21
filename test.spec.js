@@ -70,7 +70,7 @@ test('text_copy_paste', async ({page}) => {
     await page.waitForTimeout(500)
     const buttonLocator = page.locator('#updatingButton');
     const buttonText = await buttonLocator.textContent();
-    const triple_text = buttonText+buttonText+buttonText;
+    const triple_text = buttonText + buttonText + buttonText;
     await page.fill('#newButtonName', triple_text)
     await page.waitForTimeout(500)
     await expect(page.locator('#updatingButton')).toHaveText(buttonText)
