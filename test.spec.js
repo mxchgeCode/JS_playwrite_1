@@ -9,7 +9,7 @@ test('checkbox and radio', async ({page}) => {
 
 
 test('click test', async ({page}) => {
-    await page.goto('https://uitestingplayground.com/click');
+    await page.goto('http://uitestingplayground.com/click');
     const button = page.locator("#badButton");
     await expect(button).toHaveCSS('background-color', 'rgb(0, 123, 255)')
     await button.click();
@@ -20,7 +20,7 @@ test('click test', async ({page}) => {
 
 test('fill data test', async ({page}) => {
     const login = 'john'
-    await page.goto('https://uitestingplayground.com/sampleapp');
+    await page.goto('http://uitestingplayground.com/sampleapp');
     await page.fill(`input[name="UserName"]`, login);
     await page.fill('input[name="Password"]', 'pwd');
     await page.locator('[id="login"]').click();
@@ -52,7 +52,7 @@ test('checkboxes', async ({page}) => {
 test('screen_shot', async ({page}) => {
     const screenshotPath = 'site.png'
     const containerScreenshotPath = 'container.png'
-    await page.goto('https://uitestingplayground.com/sampleapp');
+    await page.goto('http://uitestingplayground.com/sampleapp');
     await page.locator("body").screenshot({path: screenshotPath});
     await page.waitForTimeout(500);
     await page.locator('.container').first().screenshot({path: containerScreenshotPath});
