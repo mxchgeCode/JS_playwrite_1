@@ -1,0 +1,24 @@
+{
+  "name": "jsautotests",
+  "version": "1.0.0",
+  "description": "test for wen on js",
+  "main": "test.spec.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxchgeCode/JS_playwrite_1.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@playwright/test": "^1.51.0"
+  },
+  "bugs": {
+    "url": "https://github.com/mxchgeCode/JS_playwrite_1/issues"
+  },
+  "homepage": "https://github.com/mxchgeCode/JS_playwrite_1#readme",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
