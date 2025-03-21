@@ -14,7 +14,7 @@ test('click test', async ({page}) => {
     await expect(button).toHaveCSS('background-color', 'rgb(0, 123, 255)')
     await button.click();
     await expect(button).toHaveCSS('background-color', 'rgb(33, 136, 56)');
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(500);
 });
 
 
@@ -24,7 +24,7 @@ test('fill data test', async ({page}) => {
     await page.fill(`input[name="UserName"]`, login);
     await page.fill('input[name="Password"]', 'pwd');
     await page.locator('[id="login"]').click();
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(1000);
     await expect(page.locator("#loginstatus")).toHaveText(`Welcome, ${login}!`);
 })
 
